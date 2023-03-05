@@ -14,15 +14,18 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatListModule } from "@angular/material/list";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { ArticleListComponent } from './components/article-list/article-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ArticleListComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     FlexLayoutModule,
     FormsModule,
+    MatListModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
       timeOut: 5000,

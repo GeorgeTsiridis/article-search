@@ -1,0 +1,54 @@
+<div class="container-fluid h-100 g-0 text-center">
+    <div class="progress-bar">
+        <mat-progress-bar *ngIf="isLoading"
+                          mode="indeterminate"
+                          color="accent"></mat-progress-bar>
+    </div>
+    <div class="row g-0 px-4 pt-4">
+        <div class="col-12">
+            <div class="w-100"
+                 fxLayout="row"
+                 fxLayoutAlign="center center">
+                <div fxLayout="row"
+                     fxLayoutAlign="center center"
+                     class="pe-2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Search by Title...</mat-label>
+                        <input matInput
+                               [(ngModel)]="searchTerm"
+                               type="text"
+                               name="searchUpdate"
+                               id="searchUpdate"
+                               aria-label="Search By Title"
+                               (ngModelChange)="valueChange($event)" />
+                        <button *ngIf="searchTerm"
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="clearFilter()">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-0">
+        <mat-list *ngIf="articles.length > 0 else noArcticles">
+            <mat-list-item *ngFor="let article of articles">
+                <h3 matLine
+                    [ariaLabel]="article.attributes.title">
+                    {{ article.attributes.title }}
+                </h3>
+                <p matLine
+                   [ariaLabel]="article.attributes.body">
+                    {{ article.attributes.body }}
+                </p>
+            </mat-list-item>
+        </mat-list>
+        <ng-template #noArcticles>  
+            <p *ngIf="!isLoading">It seems there are no articles with the keyword you typed...</p>
+        </ng-template>
+    </div>
+</div>

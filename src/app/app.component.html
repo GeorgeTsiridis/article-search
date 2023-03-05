@@ -1,16 +1,14 @@
 <mat-toolbar class="mat-elevation-z10"
              color="primary"
              fxLayout="row">
-  <div>
-    <h2>
-      Article Search
-    </h2>
-  </div>
+  <h2>
+    Article Search
+  </h2>
 </mat-toolbar>
 
-<div class="row g-0 overflow-auto mat-app-background"
+<div class="row g-0 overflow-auto"
      style="height: calc(100% - 65px);">
   <div class="col-12 h-100">
-    <router-outlet></router-outlet>
+    <app-article-list></app-article-list>
   </div>
 </div>
